@@ -3375,6 +3375,16 @@ input, select, textarea {
 		padding: 1.75em 2em;
 	}
 
+	#header2 {
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		background-color: #b74e91;
+		cursor: default;
+		padding: 1.75em 2em;
+	}
+
 		#header > .title {
 			border: 0;
 			color: #ffffff;
