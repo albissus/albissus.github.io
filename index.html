@@ -39,7 +39,10 @@
 		<section id="top" class="hero">
 			<div class="hero__inner">
 				<span class="hero__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-				<p class="eyebrow">/ælˈbɪsəs/ &nbsp;·&nbsp; invented word &nbsp;·&nbsp; a bright, mysterious light, often associated with knowledge</p>
+				<p class="eyebrow">
+					<span id="phoneticFlip" class="phonetic-flip" aria-hidden="true"></span><span id="typedRest" class="typed-rest" aria-hidden="true"></span>
+					<span class="visually-hidden">/ælˈbɪsəs/ &nbsp;·&nbsp; invented word &nbsp;·&nbsp; a bright, mysterious light, often associated with knowledge</span>
+				</p>
 				<h1 class="hero__word">albissus</h1>
 				<p class="hero__tagline">We build VR, 3D, and digital experiences — training simulations, neurofeedback apps, and digital media and marketing — for organizations that want to do it right the first time.</p>
 				<div class="hero__actions">
@@ -199,6 +202,76 @@
 				navToggle.setAttribute('aria-expanded', 'false');
 			});
 		});
+
+		(function () {
+			const flipEl = document.getElementById('phoneticFlip');
+			const typedEl = document.getElementById('typedRest');
+			if (!flipEl || !typedEl) return;
+
+			const phoneticText = '/ælˈbɪsəs/';
+			const restText = '  ·  invented word  ·  a bright, mysterious light, often associated with knowledge';
+			const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#/ˈɪəæ';
+
+			const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			if (reduceMotion) {
+				flipEl.textContent = phoneticText;
+				typedEl.textContent = restText;
+				typedEl.classList.add('is-done');
+				return;
+			}
+
+			function typeStep(i) {
+				if (i < restText.length) {
+					typedEl.textContent += restText[i];
+					setTimeout(() => typeStep(i + 1), 28);
+				} else {
+					typedEl.classList.add('is-done');
+				}
+			}
+
+			function flipOne(el, finalChar, done) {
+				if (finalChar === ' ') { el.textContent = ' '; done(); return; }
+				const cycles = 7 + Math.floor(Math.random() * 5);
+				let tick = 0;
+				function step() {
+					el.classList.remove('flip-tick');
+					void el.offsetWidth;
+					el.classList.add('flip-tick');
+					if (tick < cycles) {
+						el.textContent = scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+						tick++;
+						setTimeout(step, 40);
+					} else {
+						el.textContent = finalChar;
+						setTimeout(done, 90);
+					}
+				}
+				step();
+			}
+
+			const innerEls = phoneticText.split('').map(ch => {
+				const wrap = document.createElement('span');
+				wrap.className = 'flip-char';
+				const inner = document.createElement('span');
+				inner.className = 'flip-char__inner';
+				inner.textContent = ch === ' ' ? ' ' : ch;
+				wrap.appendChild(inner);
+				flipEl.appendChild(wrap);
+				return inner;
+			});
+
+			let finishedCount = 0;
+			function onCharDone() {
+				finishedCount++;
+				if (finishedCount === innerEls.length) {
+					typeStep(0);
+				}
+			}
+
+			innerEls.forEach((inner, idx) => {
+				setTimeout(() => flipOne(inner, phoneticText[idx], onCharDone), idx * 65);
+			});
+		})();
 	</script>
 </body>
 </html>

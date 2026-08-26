@@ -112,6 +112,48 @@ img { max-width: 100%; display: block; }
 .eyebrow--dark { color: var(--gold-dim); }
 
 /* ---------------------------------------------------------
+   Hero eyebrow — flip-letter + typewriter intro
+--------------------------------------------------------- */
+.phonetic-flip, .typed-rest {
+	display: inline-block;
+	white-space: pre-wrap;
+}
+
+.flip-char {
+	display: inline-block;
+	perspective: 60px;
+}
+.flip-char__inner {
+	display: inline-block;
+	backface-visibility: hidden;
+}
+.flip-char__inner.flip-tick {
+	animation: flip-tick 0.09s ease-in;
+}
+@keyframes flip-tick {
+	0%   { transform: rotateX(0deg); }
+	50%  { transform: rotateX(-90deg); }
+	100% { transform: rotateX(0deg); }
+}
+
+.typed-rest::after {
+	content: "";
+	display: inline-block;
+	width: 2px;
+	height: 0.9em;
+	margin-left: 2px;
+	background: var(--gold);
+	vertical-align: -0.15em;
+	animation: caret-blink 0.9s steps(2, jump-none) infinite;
+}
+.typed-rest.is-done::after { opacity: 0; }
+@keyframes caret-blink { 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+	.typed-rest::after { display: none; }
+}
+
+/* ---------------------------------------------------------
    Header / nav
 --------------------------------------------------------- */
 .site-header {
@@ -148,6 +190,9 @@ img { max-width: 100%; display: block; }
 	background: var(--gold);
 	display: block;
 }
+.site-header .brand__dots i { animation: pulse 2.4s ease-in-out infinite; }
+.site-header .brand__dots i:nth-child(2) { animation-delay: 0.25s; }
+.site-header .brand__dots i:nth-child(3) { animation-delay: 0.5s; }
 
 .site-nav {
 	display: flex;
