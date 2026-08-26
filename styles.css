@@ -278,6 +278,33 @@ img { max-width: 100%; display: block; }
 .btn--ghost:hover { border-color: var(--gold); color: var(--gold); }
 
 /* ---------------------------------------------------------
+   Trusted by — logo carousel
+--------------------------------------------------------- */
+.section--trusted {
+	padding: 3rem 0;
+	background: var(--paper);
+	border-bottom: 1px solid var(--line-on-paper);
+}
+
+.logo-row {
+	margin-top: 1rem;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 2.5rem 3rem;
+}
+
+.logo-row__item img {
+	height: 80px;
+	width: auto;
+	object-fit: contain;
+	opacity: 0.85;
+	filter: grayscale(0.15);
+	transition: opacity 0.2s ease;
+}
+.logo-row__item img:hover { opacity: 1; }
+
+/* ---------------------------------------------------------
    Cards / grid — What we do
 --------------------------------------------------------- */
 .grid { display: grid; gap: 1.75rem; margin-top: 3rem; }
