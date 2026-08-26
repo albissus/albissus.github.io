@@ -309,6 +309,7 @@ img { max-width: 100%; display: block; }
 --------------------------------------------------------- */
 .grid { display: grid; gap: 1.75rem; margin-top: 3rem; }
 .grid--4 { grid-template-columns: repeat(4, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
 .grid--2 { grid-template-columns: repeat(2, 1fr); }
 
 .card {
@@ -324,9 +325,12 @@ img { max-width: 100%; display: block; }
 	box-shadow: 0 12px 24px rgba(36, 20, 84, 0.08);
 }
 .card__mark {
-	font-size: 1.5rem;
 	color: var(--gold-dim);
 	margin-bottom: 1rem;
+}
+.card__mark svg {
+	width: 30px;
+	height: 30px;
 }
 .card__title { font-size: 1.05rem; margin-bottom: 0.6rem; }
 .card__text { font-size: 0.95rem; color: rgba(36,20,84,0.75); margin-bottom: 0; }
@@ -467,6 +471,7 @@ img { max-width: 100%; display: block; }
 --------------------------------------------------------- */
 @media (max-width: 900px) {
 	.grid--4 { grid-template-columns: repeat(2, 1fr); }
+	.grid--3 { grid-template-columns: repeat(2, 1fr); }
 	.contact-grid { grid-template-columns: 1fr; gap: 2rem; }
 }
 
@@ -489,6 +494,7 @@ img { max-width: 100%; display: block; }
 	.site-nav__cta { margin: 1em 0; text-align: center; }
 
 	.grid--4 { grid-template-columns: 1fr; }
+	.grid--3 { grid-template-columns: 1fr; }
 	.grid--2 { grid-template-columns: 1fr; }
 	.section { padding: 4rem 0; }
 }
