@@ -509,7 +509,11 @@ img { max-width: 100%; display: block; }
 	color: var(--lavender);
 	font-size: 0.85rem;
 }
-.site-footer .brand__dots i { background: var(--gold-dim); }
+.site-footer__logo {
+	height: 26px;
+	width: auto;
+	opacity: 0.85;
+}
 
 /* ---------------------------------------------------------
    Responsive
