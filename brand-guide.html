@@ -1,0 +1,806 @@
+<title>Albissus Brand Guide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap">
+
+<style>
+:root {
+	--bg: #101010;
+	--bg-deep: #000000;
+	--panel: #17161a;
+	--text: #f2f1ec;
+	--text-dim: #a6a6a6;
+	--accent: #f59e0b;
+	--accent-ink: #f59e0b;
+	--wordmark: #f59e0b;
+	--hairline: rgba(245, 158, 11, 0.24);
+	--hairline-soft: rgba(255, 255, 255, 0.09);
+	--swatch-ring: rgba(255, 255, 255, 0.14);
+
+	--mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+	--sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	--measure: 68ch;
+	--gutter: clamp(1.5rem, 5vw, 4rem);
+}
+
+@media (prefers-color-scheme: light) {
+	:root:not([data-theme="dark"]) {
+		--bg: #fafaf8;
+		--bg-deep: #f0efe7;
+		--panel: #ffffff;
+		--text: #1a1a1a;
+		--text-dim: #6b6a63;
+		--accent: #f59e0b;
+		--accent-ink: #8a6d3b;
+		--wordmark: #1a1a1a;
+		--hairline: rgba(26, 26, 26, 0.14);
+		--hairline-soft: rgba(26, 26, 26, 0.08);
+		--swatch-ring: rgba(26, 26, 26, 0.12);
+	}
+}
+
+:root[data-theme="light"] {
+	--bg: #fafaf8;
+	--bg-deep: #f0efe7;
+	--panel: #ffffff;
+	--text: #1a1a1a;
+	--text-dim: #6b6a63;
+	--accent: #f59e0b;
+	--accent-ink: #8a6d3b;
+	--wordmark: #1a1a1a;
+	--hairline: rgba(26, 26, 26, 0.14);
+	--hairline-soft: rgba(26, 26, 26, 0.08);
+	--swatch-ring: rgba(26, 26, 26, 0.12);
+}
+
+:root[data-theme="dark"] {
+	--bg: #101010;
+	--bg-deep: #000000;
+	--panel: #17161a;
+	--text: #f2f1ec;
+	--text-dim: #a6a6a6;
+	--accent: #f59e0b;
+	--accent-ink: #f59e0b;
+	--wordmark: #f59e0b;
+	--hairline: rgba(245, 158, 11, 0.24);
+	--hairline-soft: rgba(255, 255, 255, 0.09);
+	--swatch-ring: rgba(255, 255, 255, 0.14);
+}
+
+* { box-sizing: border-box; }
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--sans);
+	font-size: 1rem;
+	line-height: 1.65;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+	font-family: var(--mono);
+	font-weight: 500;
+	letter-spacing: -0.01em;
+	line-height: 1.18;
+	text-wrap: balance;
+	margin: 0;
+}
+
+a { color: var(--accent-ink); text-underline-offset: 3px; }
+
+p { margin: 0 0 1em; max-width: var(--measure); }
+
+hr {
+	border: 0;
+	border-top: 1px solid var(--hairline);
+	margin: 0;
+}
+
+::selection { background: var(--accent); color: #101010; }
+
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 1px;
+}
+
+/* ---------- shell ---------- */
+.wrap {
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 0 var(--gutter);
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0;
+}
+
+@media (min-width: 1000px) {
+	.wrap { grid-template-columns: 190px minmax(0, 1fr); column-gap: clamp(2rem, 6vw, 5rem); }
+}
+
+/* ---------- masthead ---------- */
+.masthead {
+	grid-column: 1 / -1;
+	padding: clamp(3rem, 9vw, 6rem) 0 2.5rem;
+	border-bottom: 1px solid var(--hairline);
+}
+
+.wordmark {
+	font-family: var(--mono);
+	font-weight: 600;
+	font-size: clamp(2.4rem, 8vw, 4.2rem);
+	letter-spacing: -0.02em;
+	color: var(--wordmark);
+	line-height: 1;
+	margin: 0;
+}
+
+.masthead__meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.6rem 1.4rem;
+	margin-top: 1.4rem;
+}
+
+.tag {
+	font-family: var(--mono);
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	color: var(--text-dim);
+}
+
+.tag b { color: var(--text); font-weight: 500; }
+
+.theme-btn {
+	margin-left: auto;
+	font-family: var(--mono);
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	color: var(--text);
+	background: transparent;
+	border: 1px solid var(--hairline);
+	border-radius: 4px;
+	padding: 0.5em 0.9em;
+	cursor: pointer;
+}
+.theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ---------- side index ---------- */
+.index {
+	display: none;
+	position: sticky;
+	top: 2rem;
+	align-self: start;
+	padding-top: 3rem;
+	font-family: var(--mono);
+	font-size: 0.78rem;
+	line-height: 2;
+}
+
+@media (min-width: 1000px) { .index { display: block; } }
+
+.index ol { list-style: none; margin: 0; padding: 0; counter-reset: idx; }
+.index li { counter-increment: idx; }
+.index a {
+	color: var(--text-dim);
+	text-decoration: none;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.index a::before { content: "§" counter(idx) "  "; color: var(--accent); }
+.index a:hover, .index a:focus-visible { color: var(--text); }
+
+/* ---------- sections ---------- */
+main { grid-column: 2 / -1; padding-bottom: 6rem; }
+@media (max-width: 999px) { main { grid-column: 1 / -1; } }
+
+section {
+	padding: clamp(3rem, 8vw, 5rem) 0;
+	border-bottom: 1px solid var(--hairline);
+	counter-increment: sec;
+}
+section:last-of-type { border-bottom: 0; }
+
+.eyebrow {
+	font-family: var(--mono);
+	font-size: 0.72rem;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	color: var(--accent-ink);
+	margin: 0 0 1rem;
+	display: block;
+}
+
+.eyebrow::before { content: "§" counter(sec) " / "; opacity: 0.7; }
+
+h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); }
+h3 { font-size: 1.05rem; margin: 2.2rem 0 0.6rem; }
+.lede { font-size: 1.1rem; color: var(--text); max-width: var(--measure); }
+
+/* ---------- specimen panels ---------- */
+.panel {
+	border: 1px solid var(--hairline);
+	border-radius: 8px;
+	background: var(--panel);
+	padding: clamp(1.2rem, 3vw, 2rem);
+	margin: 1.8rem 0;
+}
+
+.grid {
+	display: grid;
+	gap: 1rem;
+	margin: 1.8rem 0;
+}
+.grid--swatch { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
+.grid--two { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+/* swatches */
+.swatch {
+	border: 1px solid var(--swatch-ring);
+	border-radius: 8px;
+	overflow: hidden;
+}
+.swatch__chip {
+	height: 96px;
+	display: flex;
+	align-items: flex-end;
+	padding: 0.6rem 0.75rem;
+	font-family: var(--mono);
+	font-size: 0.78rem;
+}
+.swatch__body {
+	padding: 0.75rem;
+	font-family: var(--mono);
+	font-size: 0.74rem;
+	line-height: 1.75;
+	background: var(--panel);
+}
+.swatch__body dt { color: var(--text-dim); float: left; width: 3.4em; }
+.swatch__body dd { margin: 0 0 0 0; }
+.swatch__name { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.4rem; color: var(--text); }
+
+/* tables */
+.table-scroll { overflow-x: auto; margin: 1.6rem 0; }
+table {
+	border-collapse: collapse;
+	width: 100%;
+	font-size: 0.86rem;
+	font-variant-numeric: tabular-nums;
+}
+th, td {
+	text-align: left;
+	padding: 0.6rem 0.9rem;
+	border-bottom: 1px solid var(--hairline-soft);
+	white-space: nowrap;
+}
+th {
+	font-family: var(--mono);
+	font-weight: 500;
+	font-size: 0.68rem;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: var(--text-dim);
+}
+td code { font-family: var(--mono); font-size: 0.82rem; color: var(--accent-ink); }
+
+.verdict { font-family: var(--mono); font-size: 0.78rem; }
+.verdict--pass { color: #3aa76d; }
+.verdict--warn { color: var(--accent-ink); }
+.verdict--fail { color: #d9584a; }
+
+/* do / don't */
+.dd { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin: 1.6rem 0; }
+.dd__col { border: 1px solid var(--hairline); border-radius: 8px; padding: 1.1rem 1.25rem; }
+.dd__col h4 {
+	font-size: 0.72rem;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	margin-bottom: 0.8rem;
+}
+.dd__col--do h4 { color: #3aa76d; }
+.dd__col--dont h4 { color: #d9584a; }
+.dd__col ul { margin: 0; padding-left: 1.1rem; }
+.dd__col li { margin-bottom: 0.5rem; font-size: 0.9rem; }
+
+/* type specimens */
+.spec {
+	border: 1px solid var(--hairline);
+	border-radius: 8px;
+	padding: 1.4rem 1.6rem;
+	margin: 1rem 0;
+}
+.spec__label {
+	font-family: var(--mono);
+	font-size: 0.68rem;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	color: var(--text-dim);
+	margin-bottom: 0.8rem;
+}
+.spec__mono { font-family: var(--mono); }
+.spec__sans { font-family: var(--sans); }
+.spec__big { font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1; color: var(--wordmark); }
+.spec__aa { display: block; font-size: 1.35rem; line-height: 1.3; }
+.spec__weights span { margin-right: 1.2rem; }
+.spec__weights .w4 { font-weight: 400; }
+.spec__weights .w5 { font-weight: 500; }
+.spec__weights .w6 { font-weight: 600; }
+
+/* dot mark */
+.dots { display: inline-flex; gap: 8px; vertical-align: middle; }
+.dots i {
+	width: 10px; height: 10px;
+	border-radius: 50%;
+	background: var(--accent);
+	display: block;
+	animation: pulse 2.4s ease-in-out infinite;
+}
+.dots i:nth-child(2) { animation-delay: 0.25s; }
+.dots i:nth-child(3) { animation-delay: 0.5s; }
+@keyframes pulse {
+	0%, 100% { opacity: 0.35; transform: scale(0.82); }
+	50% { opacity: 1; transform: scale(1); }
+}
+
+/* buttons demo */
+.btn-row { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.2rem 0; align-items: center; }
+.btn {
+	font-family: var(--mono);
+	font-size: 0.9rem;
+	text-decoration: none;
+	padding: 0.8em 1.5em;
+	border-radius: 2px;
+	display: inline-block;
+	border: 1px solid transparent;
+}
+.btn--primary { background: var(--accent); color: #101010; }
+.btn--ghost { border-color: var(--hairline); color: var(--text); }
+.pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	border: 1px solid var(--hairline);
+	border-radius: 999px;
+	padding: 0.5em 1em;
+	font-size: 0.85rem;
+}
+.pill i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: block; }
+
+.callout {
+	border-left: 3px solid var(--accent);
+	border-radius: 0;
+	background: var(--panel);
+	padding: 1rem 1.25rem;
+	margin: 1.8rem 0;
+	font-size: 0.92rem;
+}
+.callout strong { font-family: var(--mono); font-weight: 500; }
+
+.clearspace {
+	position: relative;
+	display: inline-block;
+	padding: 40px;
+	margin: 1rem 0;
+	border: 1px dashed var(--hairline);
+	border-radius: 6px;
+}
+.clearspace .wordmark { font-size: 2.2rem; }
+
+ul.tight { max-width: var(--measure); padding-left: 1.2rem; }
+ul.tight li { margin-bottom: 0.55rem; }
+
+.sig {
+	font-family: var(--mono);
+	border: 1px solid var(--hairline);
+	border-radius: 8px;
+	padding: 1.2rem 1.4rem;
+	font-size: 0.88rem;
+	line-height: 1.7;
+	max-width: 420px;
+}
+.sig .sig__name { font-weight: 600; font-size: 1rem; }
+.sig .sig__role { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.68rem; color: var(--accent-ink); }
+.sig a { text-decoration: none; }
+
+footer {
+	grid-column: 2 / -1;
+	padding: 2.5rem 0 4rem;
+	font-family: var(--mono);
+	font-size: 0.74rem;
+	color: var(--text-dim);
+	line-height: 1.9;
+}
+@media (max-width: 999px) { footer { grid-column: 1 / -1; } }
+
+body { counter-reset: sec; }
+
+@media (prefers-reduced-motion: reduce) {
+	* { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+</style>
+
+<div class="wrap">
+
+	<header class="masthead">
+		<h1 class="wordmark">albissus</h1>
+		<div class="masthead__meta">
+			<span class="tag">Brand guide <b>v1.0</b></span>
+			<span class="tag">Updated <b>2026-08-29</b></span>
+			<span class="tag">Palette <b>black &amp; yellow</b></span>
+			<button class="theme-btn" id="themeBtn" type="button" aria-label="Switch colour theme">Theme</button>
+		</div>
+	</header>
+
+	<nav class="index" aria-label="Sections">
+		<ol>
+			<li><a href="#name">The name</a></li>
+			<li><a href="#logo">Logo</a></li>
+			<li><a href="#colour">Colour</a></li>
+			<li><a href="#type">Typography</a></li>
+			<li><a href="#voice">Voice &amp; tone</a></li>
+			<li><a href="#motion">Motion</a></li>
+			<li><a href="#layout">Layout &amp; components</a></li>
+			<li><a href="#apps">Applications</a></li>
+		</ol>
+	</nav>
+
+	<main>
+
+		<section id="name">
+			<span class="eyebrow">The name</span>
+			<h2>albissus</h2>
+			<p class="lede">/&aelig;l&#712;b&#618;s&#601;s/ &middot; an invented word &mdash; a bright, mysterious light, often associated with knowledge.</p>
+			<p>Always lowercase as a logo. In running prose it takes a normal capital: &ldquo;Albissus builds&hellip;&rdquo;. Never all-caps, never camel-cased, never hyphenated. It is a singular entity &mdash; &ldquo;Albissus is&rdquo;, not &ldquo;Albissus are&rdquo;.</p>
+			<p>One-line descriptor, used verbatim in bios, decks and directory listings:</p>
+			<div class="callout"><strong>Albissus builds immersive VR simulations, digital media, and marketing for organisations that dream big.</strong></div>
+		</section>
+
+		<section id="logo">
+			<span class="eyebrow">Logo</span>
+			<h2>A wordmark and a pulse</h2>
+			<p class="lede">The identity is two parts: the lowercase <em>albissus</em> wordmark set in IBM Plex Mono&nbsp;600, and the three-dot mark &mdash; a stand-in for a signal, a heartbeat, a loading state.</p>
+
+			<div class="panel">
+				<div class="spec__label">Wordmark &mdash; primary</div>
+				<span class="wordmark" style="font-size:clamp(2rem,7vw,3.4rem)">albissus</span>
+			</div>
+
+			<div class="panel">
+				<div class="spec__label">Three-dot mark &mdash; pulses on a 2.4s stagger</div>
+				<span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+			</div>
+
+			<h3>Clear space &amp; minimum size</h3>
+			<p>Keep clear space around the mark equal to the height of one full character of the wordmark. Minimum wordmark size is 90&nbsp;px wide on screen (≈24&nbsp;px cap height); below that, use the three-dot mark alone.</p>
+			<span class="clearspace"><span class="wordmark">albissus</span></span>
+
+			<h3>Colour</h3>
+			<p>The wordmark appears in exactly three colours: <b>Signal yellow</b> on dark grounds, <b>Ink</b> or <b>Paper</b> on the opposite ground. Nothing else.</p>
+
+			<div class="dd">
+				<div class="dd__col dd__col--do">
+					<h4>Do</h4>
+					<ul>
+						<li>Set it only in IBM Plex Mono 600, lowercase.</li>
+						<li>Signal yellow on Ink / black; Ink on Paper.</li>
+						<li>Give it a full character-height of clear space.</li>
+						<li>Use the dot mark alone when space is tight.</li>
+					</ul>
+				</div>
+				<div class="dd__col dd__col--dont">
+					<h4>Don't</h4>
+					<ul>
+						<li>Put the yellow wordmark on Paper &mdash; 2.1:1 contrast.</li>
+						<li>Add glow, bevel, gradient, outline or drop shadow.</li>
+						<li>Re-space, stretch or recolour the three dots.</li>
+						<li>Substitute another mono or a sans face.</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="callout">
+				<strong>Open action:</strong> the raster assets in <code>/img</code> (<code>albissus-dots.png</code>, <code>albissus-logo-transparent.png</code>) and <code>favicon.ico</code> are still the previous indigo/gold. Regenerate them in Ink <code>#101010</code> and Signal yellow <code>#F59E0B</code> before the next deploy.
+			</div>
+		</section>
+
+		<section id="colour">
+			<span class="eyebrow">Colour</span>
+			<h2>Black, yellow, and just enough grey</h2>
+			<p class="lede">Two brand colours doing almost all the work: near-black grounds and a single warm yellow accent. Everything else is a neutral or a hairline. The source of truth is the <code>:root</code> block in <code>styles.css</code>.</p>
+
+			<div class="grid grid--swatch">
+				<div class="swatch">
+					<div class="swatch__chip" style="background:#101010;color:#f59e0b">Aa</div>
+					<div class="swatch__body">
+						<div class="swatch__name">Ink</div>
+						<dl><dt>hex</dt><dd>#101010</dd></dl>
+						<dl><dt>rgb</dt><dd>16 16 16</dd></dl>
+						<dl><dt>token</dt><dd>--ink</dd></dl>
+						<dl><dt>role</dt><dd>primary ground</dd></dl>
+					</div>
+				</div>
+				<div class="swatch">
+					<div class="swatch__chip" style="background:#000000;color:#f59e0b">Aa</div>
+					<div class="swatch__body">
+						<div class="swatch__name">True black</div>
+						<dl><dt>hex</dt><dd>#000000</dd></dl>
+						<dl><dt>rgb</dt><dd>0 0 0</dd></dl>
+						<dl><dt>token</dt><dd>--ink-deep</dd></dl>
+						<dl><dt>role</dt><dd>deepest sections, footer</dd></dl>
+					</div>
+				</div>
+				<div class="swatch">
+					<div class="swatch__chip" style="background:#fafaf8;color:#1a1a1a">Aa</div>
+					<div class="swatch__body">
+						<div class="swatch__name">Paper</div>
+						<dl><dt>hex</dt><dd>#FAFAF8</dd></dl>
+						<dl><dt>rgb</dt><dd>250 250 248</dd></dl>
+						<dl><dt>token</dt><dd>--paper</dd></dl>
+						<dl><dt>role</dt><dd>readable sections, cards</dd></dl>
+					</div>
+				</div>
+				<div class="swatch">
+					<div class="swatch__chip" style="background:#fafaf8;color:#1a1a1a">Aa</div>
+					<div class="swatch__body">
+						<div class="swatch__name">Paper ink</div>
+						<dl><dt>hex</dt><dd>#1A1A1A</dd></dl>
+						<dl><dt>rgb</dt><dd>26 26 26</dd></dl>
+						<dl><dt>token</dt><dd>--paper-ink</dd></dl>
+						<dl><dt>role</dt><dd>body copy on Paper</dd></dl>
+					</div>
+				</div>
+				<div class="swatch">
+					<div class="swatch__chip" style="background:#f59e0b;color:#101010">Aa</div>
+					<div class="swatch__body">
+						<div class="swatch__name">Signal yellow</div>
+						<dl><dt>hex</dt><dd>#F59E0B</dd></dl>
+						<dl><dt>rgb</dt><dd>245 158 11</dd></dl>
+						<dl><dt>token</dt><dd>--gold</dd></dl>
+						<dl><dt>role</dt><dd>accent &mdash; CTAs, wordmark, focus</dd></dl>
+					</div>
+				</div>
+				<div class="swatch">
+					<div class="swatch__chip" style="background:#8a6d3b;color:#fafaf8">Aa</div>
+					<div class="swatch__body">
+						<div class="swatch__name">Bronze</div>
+						<dl><dt>hex</dt><dd>#8A6D3B</dd></dl>
+						<dl><dt>rgb</dt><dd>138 109 59</dd></dl>
+						<dl><dt>token</dt><dd>--gold-dim</dd></dl>
+						<dl><dt>role</dt><dd>accent text on Paper</dd></dl>
+					</div>
+				</div>
+				<div class="swatch">
+					<div class="swatch__chip" style="background:#101010;color:#a6a6a6">Aa</div>
+					<div class="swatch__body">
+						<div class="swatch__name">Ash</div>
+						<dl><dt>hex</dt><dd>#A6A6A6</dd></dl>
+						<dl><dt>rgb</dt><dd>166 166 166</dd></dl>
+						<dl><dt>token</dt><dd>--lavender</dd></dl>
+						<dl><dt>role</dt><dd>secondary text on dark</dd></dl>
+					</div>
+				</div>
+				<div class="swatch">
+					<div class="swatch__chip" style="background:#101010;color:#f59e0b;border-bottom:1px solid rgba(245,158,11,0.24)">&mdash;</div>
+					<div class="swatch__body">
+						<div class="swatch__name">Hairlines</div>
+						<dl><dt>dark</dt><dd>245 158 11 / .24</dd></dl>
+						<dl><dt>paper</dt><dd>26 26 26 / .12</dd></dl>
+						<dl><dt>token</dt><dd>--line-on-*</dd></dl>
+						<dl><dt>role</dt><dd>borders, dividers</dd></dl>
+					</div>
+				</div>
+			</div>
+
+			<h3>Contrast &amp; pairing</h3>
+			<p>Yellow is a text colour only on dark grounds. On Paper it reads at 2.1:1 &mdash; use it as a fill, or switch accent text to Bronze.</p>
+			<div class="table-scroll">
+				<table>
+					<thead><tr><th>Foreground</th><th>Background</th><th>Ratio</th><th>Rating</th></tr></thead>
+					<tbody>
+						<tr><td>Signal yellow <code>#F59E0B</code></td><td>Ink <code>#101010</code></td><td>8.8&#8202;:&#8202;1</td><td class="verdict verdict--pass">AAA</td></tr>
+						<tr><td>Paper <code>#FAFAF8</code></td><td>Ink <code>#101010</code></td><td>18&#8202;:&#8202;1</td><td class="verdict verdict--pass">AAA</td></tr>
+						<tr><td>Ash <code>#A6A6A6</code></td><td>Ink <code>#101010</code></td><td>7.7&#8202;:&#8202;1</td><td class="verdict verdict--pass">AAA</td></tr>
+						<tr><td>Paper ink <code>#1A1A1A</code></td><td>Paper <code>#FAFAF8</code></td><td>16&#8202;:&#8202;1</td><td class="verdict verdict--pass">AAA</td></tr>
+						<tr><td>Bronze <code>#8A6D3B</code></td><td>Paper <code>#FAFAF8</code></td><td>4.6&#8202;:&#8202;1</td><td class="verdict verdict--warn">AA &middot; normal text</td></tr>
+						<tr><td>Signal yellow <code>#F59E0B</code></td><td>Paper <code>#FAFAF8</code></td><td>2.1&#8202;:&#8202;1</td><td class="verdict verdict--fail">Fail &middot; fills only</td></tr>
+					</tbody>
+				</table>
+			</div>
+
+			<h3>Proportion</h3>
+			<p>Roughly 70% ground (Ink or Paper), 25% neutrals and type, 5% Signal yellow. If a screen looks yellow, it has too much. The accent marks the one thing that matters on a given view &mdash; the primary action, the live state, the keyword.</p>
+		</section>
+
+		<section id="type">
+			<span class="eyebrow">Typography</span>
+			<h2>Mono for structure, sans for sentences</h2>
+			<p class="lede">IBM Plex Mono sets everything structural &mdash; the wordmark, headings, labels, buttons. IBM Plex Sans carries running text. The mono gives the brand its engineered, terminal-adjacent character; the sans keeps paragraphs comfortable.</p>
+
+			<div class="spec">
+				<div class="spec__label">IBM Plex Mono &mdash; display &amp; structural &middot; weights 400 / 500 / 600</div>
+				<div class="spec__mono spec__big">albissus</div>
+				<div class="spec__mono spec__weights" style="margin-top:1rem">
+					<span class="w4">Regular 400</span><span class="w5">Medium 500</span><span class="w6">SemiBold 600</span>
+				</div>
+			</div>
+
+			<div class="spec">
+				<div class="spec__label">IBM Plex Sans &mdash; body &middot; weights 400 / 500</div>
+				<span class="spec__sans spec__aa">We build immersive VR simulations, digital media content, and marketing campaigns for organisations that dream big.</span>
+			</div>
+
+			<h3>Type scale</h3>
+			<p>Mirrors the live values in <code>styles.css</code>. Headings track &minus;0.01em; uppercase labels track +0.14 to +0.16em.</p>
+			<div class="table-scroll">
+				<table>
+					<thead><tr><th>Role</th><th>Face</th><th>Size</th><th>Weight</th><th>Case</th></tr></thead>
+					<tbody>
+						<tr><td>Hero word</td><td>Plex Mono</td><td>clamp(3rem, 10vw, 6.5rem)</td><td>600</td><td>lower</td></tr>
+						<tr><td>Section title</td><td>Plex Mono</td><td>clamp(1.6rem, 3vw, 2.25rem)</td><td>500</td><td>Sentence</td></tr>
+						<tr><td>Sub-head / card</td><td>Plex Mono</td><td>1.05rem</td><td>500</td><td>Sentence</td></tr>
+						<tr><td>Lede</td><td>Plex Sans</td><td>1.05rem</td><td>400</td><td>Sentence</td></tr>
+						<tr><td>Body</td><td>Plex Sans</td><td>1rem / 1.6</td><td>400</td><td>Sentence</td></tr>
+						<tr><td>Eyebrow / label</td><td>Plex Mono</td><td>0.75rem</td><td>500</td><td>UPPER</td></tr>
+						<tr><td>Button</td><td>Plex Mono</td><td>0.9rem</td><td>500</td><td>Sentence</td></tr>
+					</tbody>
+				</table>
+			</div>
+
+			<h3>Rules</h3>
+			<ul class="tight">
+				<li>Sentence case for headings and buttons. UPPERCASE only for eyebrows and metadata labels, always letter-spaced.</li>
+				<li>Keep running text near 65&ndash;70 characters per line.</li>
+				<li>Load only the weights in use: Mono 400/500/600, Sans 400/500.</li>
+				<li>Fallbacks: <code>ui-monospace, Menlo, monospace</code> and <code>-apple-system, 'Segoe UI', sans-serif</code>.</li>
+			</ul>
+		</section>
+
+		<section id="voice">
+			<span class="eyebrow">Voice &amp; tone</span>
+			<h2>Plain-spoken. Confident. Quietly playful.</h2>
+			<p class="lede">Albissus is a small team that does ambitious technical work. The writing should sound like a person who knows the craft explaining it without inflating it &mdash; short sentences, concrete nouns, the occasional dry aside.</p>
+
+			<div class="dd">
+				<div class="dd__col dd__col--do">
+					<h4>Do</h4>
+					<ul>
+						<li>&ldquo;We build immersive VR simulations, digital media, and marketing.&rdquo;</li>
+						<li>&ldquo;Six ways we bring your ideas to screen &mdash; or headset.&rdquo;</li>
+						<li>&ldquo;A small team, built for this specifically.&rdquo;</li>
+						<li>&ldquo;Tell us what you&rsquo;re trying to build.&rdquo;</li>
+					</ul>
+				</div>
+				<div class="dd__col dd__col--dont">
+					<h4>Don't</h4>
+					<ul>
+						<li>&ldquo;We leverage cutting-edge XR to unlock synergies.&rdquo;</li>
+						<li>&ldquo;Our Comprehensive Service Portfolio.&rdquo;</li>
+						<li>&ldquo;A world-class team of industry veterans.&rdquo;</li>
+						<li>&ldquo;Contact us today for a free consultation!&rdquo;</li>
+					</ul>
+				</div>
+			</div>
+
+			<h3>Conventions</h3>
+			<ul class="tight">
+				<li>Second person for the reader (&ldquo;your idea&rdquo;), first-person plural for Albissus (&ldquo;we build&rdquo;).</li>
+				<li>Serial comma. Em dashes for asides, spaced en dash if you must.</li>
+				<li>One exclamation mark per project, maximum. Usually zero.</li>
+				<li>&ldquo;VR&rdquo;, &ldquo;3D&rdquo;, &ldquo;XR&rdquo; are fine unspelled; avoid coining new acronyms.</li>
+			</ul>
+
+			<h3>Boilerplate &mdash; long</h3>
+			<div class="callout">Albissus is a digital media studio building immersive VR simulations, 3D web applications, neurofeedback tools, and the video and marketing that carry them. We work with organisations in education, training, and research that want to put something ambitious in front of people &mdash; on screen, or in a headset.</div>
+		</section>
+
+		<section id="motion">
+			<span class="eyebrow">Motion</span>
+			<h2>One ambient pulse, everything else on interaction</h2>
+			<p class="lede">Motion in the identity is restrained. The three-dot mark breathes; a few elements respond to the pointer; the hero types itself once. Nothing scrolls on its own.</p>
+
+			<div class="panel">
+				<span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+				<p style="margin:1rem 0 0;font-size:0.9rem;color:var(--text-dim)">Pulse &mdash; opacity 0.35&rarr;1, scale 0.82&rarr;1, 2.4s <code>ease-in-out</code>, dots staggered 0.25s.</p>
+			</div>
+
+			<ul class="tight">
+				<li><b>Hero eyebrow</b> types on once (per-character), the caret blinks, then it rests. It does not loop.</li>
+				<li><b>Phonetic spelling</b> flips letter-by-letter &mdash; <code>rotateX</code>, 0.09s per tick.</li>
+				<li><b>Buttons</b> lift 1&nbsp;px on hover; <b>cards</b> lift 3&nbsp;px with a soft Ink shadow.</li>
+				<li><b>Transitions</b> are 0.15&ndash;0.2s <code>ease</code>. No bounce, no spring.</li>
+				<li>No parallax, no scroll-jacking, no autoplaying video or audio.</li>
+				<li>Everything collapses to ≤0.01ms under <code>prefers-reduced-motion</code>.</li>
+			</ul>
+		</section>
+
+		<section id="layout">
+			<span class="eyebrow">Layout &amp; components</span>
+			<h2>A 1080&nbsp;px column and hairline edges</h2>
+			<p class="lede">Content sits in a centred 1080&nbsp;px container with a 1.75&nbsp;rem gutter. Sections alternate Ink and Paper grounds and are separated by a single hairline, never a heavy rule.</p>
+
+			<div class="table-scroll">
+				<table>
+					<thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+					<tbody>
+						<tr><td>Container</td><td>1080px</td><td>max content width</td></tr>
+						<tr><td>Gutter</td><td>1.75rem</td><td>side padding</td></tr>
+						<tr><td>Section rhythm</td><td>6rem / 4rem</td><td>desktop / ≤720px</td></tr>
+						<tr><td>Grid gap</td><td>1.75rem</td><td>cards, tags</td></tr>
+						<tr><td>Radius &mdash; button</td><td>2px</td><td>buttons, nav CTA</td></tr>
+						<tr><td>Radius &mdash; card</td><td>6px</td><td>cards, panels</td></tr>
+						<tr><td>Radius &mdash; control</td><td>4px</td><td>inputs, toggles</td></tr>
+						<tr><td>Radius &mdash; pill</td><td>999px</td><td>tags</td></tr>
+					</tbody>
+				</table>
+			</div>
+
+			<h3>Components</h3>
+			<div class="btn-row">
+				<a href="#layout" class="btn btn--primary">Primary action</a>
+				<a href="#layout" class="btn btn--ghost">Ghost action</a>
+				<span class="pill"><i aria-hidden="true"></i> Tag</span>
+			</div>
+			<ul class="tight">
+				<li><b>Primary button</b> &mdash; Signal yellow fill, Ink text, 2&nbsp;px radius. One per view.</li>
+				<li><b>Ghost button</b> &mdash; hairline border, inherits text colour; border goes yellow on hover.</li>
+				<li><b>Card</b> &mdash; Paper/panel fill, 1&nbsp;px hairline, 6&nbsp;px radius, 2&nbsp;rem padding.</li>
+				<li><b>Pill</b> &mdash; hairline border, 999&nbsp;px radius, 6&nbsp;px yellow dot as bullet.</li>
+				<li><b>Focus</b> &mdash; 2&nbsp;px Signal yellow outline, 3&nbsp;px offset, everywhere.</li>
+			</ul>
+		</section>
+
+		<section id="apps">
+			<span class="eyebrow">Applications</span>
+			<h2>Where it shows up</h2>
+
+			<h3>Favicon &amp; app icon</h3>
+			<p>Three-dot mark, Signal yellow on Ink, centred, no wordmark. Supply 16, 32, 180 and 512&nbsp;px. Dots stay static in the icon &mdash; no motion.</p>
+
+			<h3>Social / Open Graph</h3>
+			<p>1200&times;630. Wordmark plus dot mark, left-aligned on an Ink field, one character-height of clear space. The current <code>og:image</code> points to <code>img/albissus-dots.png</code> &mdash; replace with a recoloured card.</p>
+
+			<h3>Email signature</h3>
+			<div class="sig">
+				<div class="sig__name">Tahsina Mahmud</div>
+				<div class="sig__role">Founder &amp; Creative Director</div>
+				<div>Albissus &middot; <a href="https://albissus.ca">albissus.ca</a></div>
+			</div>
+			<p style="margin-top:1rem">Name in Plex Mono 600, role as a spaced uppercase label in Bronze, domain link in Signal yellow (dark clients) or Bronze (light). No logo image in the signature &mdash; keep it text.</p>
+		</section>
+
+	</main>
+
+	<footer>
+		Source of truth &mdash; <code>styles.css</code> <code>:root</code>. This guide mirrors those tokens; if they diverge, the stylesheet wins.<br>
+		Albissus brand guide &middot; v1.0 &middot; 2026-08-29
+	</footer>
+
+</div>
+
+<script>
+(function () {
+	var btn = document.getElementById('themeBtn');
+	var root = document.documentElement;
+	function current() {
+		return root.getAttribute('data-theme') ||
+			(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+	}
+	btn.addEventListener('click', function () {
+		var next = current() === 'dark' ? 'light' : 'dark';
+		root.setAttribute('data-theme', next);
+		try { localStorage.setItem('albissus-bg-theme', next); } catch (e) {}
+	});
+	try {
+		var saved = localStorage.getItem('albissus-bg-theme');
+		if (saved) root.setAttribute('data-theme', saved);
+	} catch (e) {}
+})();
+</script>
