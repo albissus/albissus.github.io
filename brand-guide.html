@@ -6,7 +6,7 @@
 
 <style>
 :root {
-	--bg: #101010;
+	--bg: #1c1c1c;
 	--bg-deep: #000000;
 	--panel: #17161a;
 	--text: #f2f1ec;
@@ -55,7 +55,7 @@
 }
 
 :root[data-theme="dark"] {
-	--bg: #101010;
+	--bg: #1c1c1c;
 	--bg-deep: #000000;
 	--panel: #17161a;
 	--text: #f2f1ec;
@@ -99,7 +99,7 @@ hr {
 	margin: 0;
 }
 
-::selection { background: var(--accent); color: #101010; }
+::selection { background: var(--accent); color: #1c1c1c; }
 
 :focus-visible {
 	outline: 2px solid var(--accent);
@@ -361,7 +361,7 @@ td code { font-family: var(--mono); font-size: 0.82rem; color: var(--accent-ink)
 	display: inline-block;
 	border: 1px solid transparent;
 }
-.btn--primary { background: var(--accent); color: #101010; }
+.btn--primary { background: var(--accent); color: #1c1c1c; }
 .btn--ghost { border-color: var(--hairline); color: var(--text); }
 .pill {
 	display: inline-flex;
@@ -507,7 +507,7 @@ body { counter-reset: sec; }
 			</div>
 
 			<div class="callout">
-				<strong>Open action:</strong> the raster assets in <code>/img</code> (<code>albissus-dots.png</code>, <code>albissus-logo-transparent.png</code>) and <code>favicon.ico</code> are still the previous indigo/gold. Regenerate them in Ink <code>#101010</code> and Signal yellow <code>#F59E0B</code> before the next deploy.
+				<strong>Open action:</strong> the raster assets in <code>/img</code> (<code>albissus-dots.png</code>, <code>albissus-logo-transparent.png</code>) and <code>favicon.ico</code> are still the previous indigo/gold. Regenerate them in Ink <code>#1c1c1c</code> and Signal yellow <code>#F59E0B</code> before the next deploy.
 			</div>
 		</section>
 
@@ -518,11 +518,11 @@ body { counter-reset: sec; }
 
 			<div class="grid grid--swatch">
 				<div class="swatch">
-					<div class="swatch__chip" style="background:#101010;color:#f59e0b">Aa</div>
+					<div class="swatch__chip" style="background:#1c1c1c;color:#f59e0b">Aa</div>
 					<div class="swatch__body">
 						<div class="swatch__name">Ink</div>
-						<dl><dt>hex</dt><dd>#101010</dd></dl>
-						<dl><dt>rgb</dt><dd>16 16 16</dd></dl>
+						<dl><dt>hex</dt><dd>#1c1c1c</dd></dl>
+						<dl><dt>rgb</dt><dd>28 28 28</dd></dl>
 						<dl><dt>token</dt><dd>--ink</dd></dl>
 						<dl><dt>role</dt><dd>primary ground</dd></dl>
 					</div>
@@ -558,7 +558,7 @@ body { counter-reset: sec; }
 					</div>
 				</div>
 				<div class="swatch">
-					<div class="swatch__chip" style="background:#f59e0b;color:#101010">Aa</div>
+					<div class="swatch__chip" style="background:#f59e0b;color:#1c1c1c">Aa</div>
 					<div class="swatch__body">
 						<div class="swatch__name">Signal yellow</div>
 						<dl><dt>hex</dt><dd>#F59E0B</dd></dl>
@@ -578,7 +578,7 @@ body { counter-reset: sec; }
 					</div>
 				</div>
 				<div class="swatch">
-					<div class="swatch__chip" style="background:#101010;color:#a6a6a6">Aa</div>
+					<div class="swatch__chip" style="background:#1c1c1c;color:#a6a6a6">Aa</div>
 					<div class="swatch__body">
 						<div class="swatch__name">Ash</div>
 						<dl><dt>hex</dt><dd>#A6A6A6</dd></dl>
@@ -588,7 +588,7 @@ body { counter-reset: sec; }
 					</div>
 				</div>
 				<div class="swatch">
-					<div class="swatch__chip" style="background:#101010;color:#f59e0b;border-bottom:1px solid rgba(245,158,11,0.24)">&mdash;</div>
+					<div class="swatch__chip" style="background:#1c1c1c;color:#f59e0b;border-bottom:1px solid rgba(245,158,11,0.24)">&mdash;</div>
 					<div class="swatch__body">
 						<div class="swatch__name">Hairlines</div>
 						<dl><dt>dark</dt><dd>245 158 11 / .24</dd></dl>
@@ -605,9 +605,9 @@ body { counter-reset: sec; }
 				<table>
 					<thead><tr><th>Foreground</th><th>Background</th><th>Ratio</th><th>Rating</th></tr></thead>
 					<tbody>
-						<tr><td>Signal yellow <code>#F59E0B</code></td><td>Ink <code>#101010</code></td><td>8.8&#8202;:&#8202;1</td><td class="verdict verdict--pass">AAA</td></tr>
-						<tr><td>Paper <code>#FAFAF8</code></td><td>Ink <code>#101010</code></td><td>18&#8202;:&#8202;1</td><td class="verdict verdict--pass">AAA</td></tr>
-						<tr><td>Ash <code>#A6A6A6</code></td><td>Ink <code>#101010</code></td><td>7.7&#8202;:&#8202;1</td><td class="verdict verdict--pass">AAA</td></tr>
+						<tr><td>Signal yellow <code>#F59E0B</code></td><td>Ink <code>#1c1c1c</code></td><td>7.9&#8202;:&#8202;1</td><td class="verdict verdict--pass">AAA</td></tr>
+						<tr><td>Paper <code>#FAFAF8</code></td><td>Ink <code>#1c1c1c</code></td><td>16&#8202;:&#8202;1</td><td class="verdict verdict--pass">AAA</td></tr>
+						<tr><td>Ash <code>#A6A6A6</code></td><td>Ink <code>#1c1c1c</code></td><td>7.0&#8202;:&#8202;1</td><td class="verdict verdict--pass">AAA</td></tr>
 						<tr><td>Paper ink <code>#1A1A1A</code></td><td>Paper <code>#FAFAF8</code></td><td>16&#8202;:&#8202;1</td><td class="verdict verdict--pass">AAA</td></tr>
 						<tr><td>Bronze <code>#8A6D3B</code></td><td>Paper <code>#FAFAF8</code></td><td>4.6&#8202;:&#8202;1</td><td class="verdict verdict--warn">AA &middot; normal text</td></tr>
 						<tr><td>Signal yellow <code>#F59E0B</code></td><td>Paper <code>#FAFAF8</code></td><td>2.1&#8202;:&#8202;1</td><td class="verdict verdict--fail">Fail &middot; fills only</td></tr>
